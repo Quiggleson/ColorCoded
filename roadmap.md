@@ -1,14 +1,15 @@
-# Framework
-## Frontend - Angular
+# TODO
+## Framework
+### Frontend - Angular
 - [ ] Learn Angular architecture
 - [ ] Example site with basic navigation and state control
-- [ ] Learn angular http packages
-- [ ] Send some simple requests to back end
-## Backend - Flask
+- [X] Learn angular http packages
+- [X] Send some simple requests to back end
+### Backend - Flask
 - [ ] Learn Flask architecture
-- [ ] Implement simple api
+- [X] Implement palceholder api
 - [ ] Consideer blob storage solutions 
-# Features
+## Features
 - [ ] Classic single file upload
 - [ ] Multiple file upload
 - [ ] Folder upload
@@ -17,3 +18,6 @@
 - [ ] Upon initial file upload, display a list of which colors are chosen
 - [ ] User selects the colors to remain fixed
 - [ ] Display possibilities with a minimum score for each color blindness type
+## Design
+- [ ] Replace favicon.ico
+- [ ] Figma mock ups
