@@ -16,12 +16,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 In a new terminal, navigate to `src/api/` then run the following commands:
 
 #### Virtual environment 
-Creating the virtual environment only has to be done once and is only required for the python portion of this project
+Creating the virtual environment only has to be done once and is only required for the python portion of this project <br>
 Run the following to create the virtual environment
 ```
 python -m venv .venv
 ```
-Activating a virtual environment has to be done with every new terminal session
+Activating a virtual environment has to be done with every new terminal session <br>
 Run the following commands to work with the virtual environment on unix or [See here for other systems](https://docs.python.org/3/library/venv.html#how-venvs-work)
 ```bash
 . .venv/bin/activate # Activate the virtual env
