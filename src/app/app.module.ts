@@ -10,14 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, UploadComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UploadComponent,
   ],
   providers: [],
   bootstrap: [AppComponent, HomeComponent],

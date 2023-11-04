@@ -1,6 +1,8 @@
-<form action="/file-upload" class="dropzone" id="my-dropzone">drag here</form>
+<form action="file-upload" class="dropzone" id="my-dropzone" (change)="onChange($event)">
+  <h3>drag here</h3>
+</form>
 
-<script>
+<!-- <script>
   import Dropzone from "dropzone";
   Dropzone.autoDiscover = false;
   let myDropzone = new Dropzone("#my-form");
@@ -16,4 +18,4 @@
       var myDropzone = this;
     },
   };
-</script>
+</script> -->
