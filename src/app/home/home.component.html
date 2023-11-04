@@ -1,5 +1,9 @@
 <h1>File Upload Component</h1>
 <form [formGroup]="imageForm" (submit)="upload()">
-    <input type="file" (change)="onChange($event)" #fileUpload>
-    <input type="submit">
+  <input type="file" (change)="onChange($event)" #fileUpload />
+  <input type="submit" />
 </form>
+
+<div id="dropzone">
+  <app-upload></app-upload>
+</div>

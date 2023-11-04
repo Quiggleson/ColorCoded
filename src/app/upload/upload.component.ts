@@ -1,17 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import * as Dropzone from 'dropzone';
 
 @Component({
   selector: 'app-upload',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <p>
-      upload works!
-    </p>
-  `,
-  styleUrls: ['./upload.component.css']
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.css'],
 })
-export class UploadComponent {
-
-}
+export class UploadComponent {}

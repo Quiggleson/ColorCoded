@@ -5,27 +5,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
   file: File | undefined;
   uploadService: FileUploadService = inject(FileUploadService);
 
   imageForm = new FormGroup({
-    image: new FormControl<File|null>(null)
+    image: new FormControl<File | null>(null),
   });
 
-  onChange(event: any){
+  onChange(event: any) {
     this.file = event.target.files[0];
   }
-  upload(){
-    this.uploadService.upload(this.file!).then((answer) =>
-      console.log(answer)
-    );
+  upload() {
+    this.uploadService.upload(this.file!).then((answer) => console.log(answer));
   }
 
-  constructor() {
-    
-  }
-
+  constructor() {}
 }

@@ -1,0 +1,19 @@
+<form action="/file-upload" class="dropzone" id="my-dropzone">drag here</form>
+
+<script>
+  import Dropzone from "dropzone";
+  Dropzone.autoDiscover = false;
+  let myDropzone = new Dropzone("#my-form");
+  myDropzone.on("addedfile", (file) => {
+    console.log(`File added: ${file.name}`);
+  });
+  //myDropzone corilates with my-dropzone
+  Dropzone.option.myDropzone = {
+    //configurations
+    clickable: "true",
+    paramName: "file", // The name that will be used to transfer the file
+    init: function () {
+      var myDropzone = this;
+    },
+  };
+</script>
