@@ -9,18 +9,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class HomeComponent {
   file: File | undefined;
-  uploadService: FileUploadService = inject(FileUploadService);
-
   imageForm = new FormGroup({
     image: new FormControl<File | null>(null),
   });
 
+  constructor(private uploadService: FileUploadService) {}
+  
   onChange(event: any) {
     this.file = event.target.files[0];
   }
   upload() {
     this.uploadService.upload(this.file!).then((answer) => console.log(answer));
   }
-
-  constructor() {}
 }

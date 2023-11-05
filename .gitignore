@@ -44,3 +44,6 @@ Thumbs.db
 # Python
 **/.venv/*
 **/__pycache__/*
+
+# Flask file uploads
+/src/api/uploads/*
