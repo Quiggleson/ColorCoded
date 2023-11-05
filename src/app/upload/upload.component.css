@@ -1,0 +1,12 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.dropzone {
+  display: flex;
+  max-width: 400px;
+  max-height: 350px;
+  justify-content: center;
+  border: 5px solid;
+  border-color: rgb(46, 44, 44);
+  border-radius: 10px;
+  margin: 15px;
+}
