@@ -1,21 +1,17 @@
-<form action="file-upload" class="dropzone" id="my-dropzone" (change)="onChange($event)">
-  <h3>drag here</h3>
-</form>
+<link
+  href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css"
+  rel="stylesheet"
+  type="text/css"
+/>
 
-<!-- <script>
-  import Dropzone from "dropzone";
-  Dropzone.autoDiscover = false;
-  let myDropzone = new Dropzone("#my-form");
-  myDropzone.on("addedfile", (file) => {
-    console.log(`File added: ${file.name}`);
-  });
-  //myDropzone corilates with my-dropzone
-  Dropzone.option.myDropzone = {
-    //configurations
-    clickable: "true",
-    paramName: "file", // The name that will be used to transfer the file
-    init: function () {
-      var myDropzone = this;
-    },
-  };
-</script> -->
+<form
+  action="file-upload"
+  class="dropzone"
+  id="my-dropzone"
+  (change)="onChange($event)"
+></form>
+
+<div class="controlBox">
+  <button class="control data-dz-remove">click to remove files</button>
+  <button class="control">submit</button>
+</div>
