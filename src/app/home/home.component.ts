@@ -13,12 +13,16 @@ export class HomeComponent {
   collectionService: CollectionService = inject(CollectionService);
   
   step: number = 0;
-  filepath: any;
+  filename: any;
 
-  onImageUploaded(filepath: any) {
-    console.log(filepath)
-    this.filepath = 'http://localhost:5000/' + filepath;
+  onImageUploaded(filename: any) {
     this.step = 1;
+    this.filename = filename;
   }
+
+  onStepChange(step: any) {
+    this.step = step;
+  }
+
   constructor() {}
 }

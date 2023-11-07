@@ -39,6 +39,9 @@ export class UploadComponent implements OnInit {
         myDropzone.processFile(file)
       })
       
+      document.querySelector("#remove-button")?.addEventListener("click", () => {
+        myDropzone.removeFile(file)
+      })
     })
     
     myDropzone.on('sending', (file: any, xhr: any, formData: any) => {

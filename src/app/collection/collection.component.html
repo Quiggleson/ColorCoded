@@ -1,0 +1,18 @@
+<h2>Collection Component</h2>
+<div class="container">
+    <div class="left-section">
+        <img *ngIf="filename" [src]="'http://localhost:5000/api/file/'+filename" alt="Uploaded Image">
+
+        <div class="controlBox">
+            <button class="control data-dz-remove" id="back-button">Back</button>
+            <button class="control" id="next-button">Next</button>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div *ngIf="colors === undefined">Loading Colors...</div>
+        <div class="color-squares">
+            <div *ngFor="let color of colors; let i = index" class="square" [style.background-color]="color"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.controlBox {
+    margin: 10px;
+    margin-right: 15px;
+    padding: 10px;
+
+    display: flex;
+}
+
+.control {
+    margin: 10px;
+    margin-right: 15px;
+    padding: 10px;
+
+    display: flex;
+}
