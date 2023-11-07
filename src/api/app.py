@@ -1,8 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 import os
 import random
 import string
+import numpy as np
+import cv2
 
 # Create the Flask app
 app = Flask(__name__)
@@ -41,7 +43,32 @@ def receive_image():
             filename = generate_random_filename() + os.path.splitext(image.filename)[1]
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         image.save(filepath)
-        return {'filepath': filepath}
+        return {'filepath': filename}
+    
+@app.route('/api/file/<path:filename>', methods=['GET'])
+def image(filename):
+    if os.path.exists(f'{app.config["UPLOAD_FOLDER"]}/{filename}'):
+        return send_file(f'{app.config["UPLOAD_FOLDER"]}/{filename}', mimetype="image/png")
+    else:
+        return 'File not found', 404
+    
+@app.route('/api/colors/<path:filename>', methods=['GET'])
+def colors(filename):
+    if not os.path.exists(f'{app.config["UPLOAD_FOLDER"]}/{filename}'):
+        return 'File not found', 404
+    
+    colors = []
+    
+    img = cv2.imread(f'{app.config["UPLOAD_FOLDER"]}/{filename}')
+    RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    for row in RGB_img:
+        for pixel in row:
+            hex_color = '#{:02x}{:02x}{:02x}'.format(*pixel)
+            colors.append(hex_color)
+
+    return random.choices(colors,k=16)
+
 
 if __name__ == '__main__':
     app.run()

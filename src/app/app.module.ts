@@ -8,9 +8,15 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './upload/upload.component';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UploadComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent, 
+    UploadComponent, 
+    CollectionComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

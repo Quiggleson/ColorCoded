@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FileUploadService } from '../file-upload.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { CollectionService } from '../collection.service';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +8,17 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  file: File | undefined;
-  imageForm = new FormGroup({
-    image: new FormControl<File | null>(null),
-  });
-
-  constructor(private uploadService: FileUploadService) {}
   
-  onChange(event: any) {
-    this.file = event.target.files[0];
+  uploadService: FileUploadService = inject(FileUploadService);
+  collectionService: CollectionService = inject(CollectionService);
+  
+  step: number = 0;
+  filepath: any;
+
+  onImageUploaded(filepath: any) {
+    console.log(filepath)
+    this.filepath = 'http://localhost:5000/' + filepath;
+    this.step = 1;
   }
-  upload() {
-    this.uploadService.upload(this.file!).then((answer) => console.log(answer));
-  }
+  constructor() {}
 }
