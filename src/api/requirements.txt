@@ -1,2 +1,4 @@
 Flask
 flask_cors
+numpy
+opencv-python

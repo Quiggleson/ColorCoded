@@ -7,23 +7,25 @@ import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UploadComponent } from './upload/upload.component';
+import { CollectionComponent } from './collection/collection.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent, 
+    HomeComponent, 
+    UploadComponent, 
+    CollectionComponent, ResultsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [
-    AppComponent,
-    HomeComponent
-  ]
+  bootstrap: [AppComponent, HomeComponent],
 })
-export class AppModule { }
+export class AppModule {}
