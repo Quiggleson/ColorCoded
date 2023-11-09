@@ -5,5 +5,4 @@ opencv-python
 colormath.color_objects
 colormath.color_diff
 PIL
-numpy
 math
