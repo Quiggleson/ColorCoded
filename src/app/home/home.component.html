@@ -1,3 +1,16 @@
-<app-upload *ngIf="step === 0" (imageUploaded)="onImageUploaded($event)"></app-upload>
-<app-collection *ngIf="step === 1" [filename]="filename" (step)="onStepChange($event)"></app-collection>
+<button>About this</button>
+
+<app-upload
+  *ngIf="step === 0"
+  (imageUploaded)="onImageUploaded($event)"
+></app-upload>
+
+<app-collection
+  *ngIf="step === 1"
+  [filename]="filename"
+  (step)="onStepChange($event)"
+></app-collection>
+
 <app-results *ngIf="step === 2" (step)="onStepChange($event)"></app-results>
+
+<app-info *ngIf="step === 3" (step)="onInfoPress($event)"></app-info>
