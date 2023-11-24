@@ -1,5 +1,9 @@
-<button>About this</button>
+<link rel="stylesheet" href=".\home.component.css" />
+<div>
+  <img src="..\assets\Color_Coded.png" alt="Color Coded logo" />
 
+  <button class="control" id="info-button">About this</button>
+</div>
 <app-upload
   *ngIf="step === 0"
   (imageUploaded)="onImageUploaded($event)"

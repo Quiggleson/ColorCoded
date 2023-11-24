@@ -24,7 +24,7 @@ export class HomeComponent {
   }
 
   onInfoPress(step: any) {
-    this.step = step;
+    this.step = 3;
   }
 
   constructor() {}
