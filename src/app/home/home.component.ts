@@ -8,10 +8,9 @@ import { CollectionService } from '../collection.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  
   uploadService: FileUploadService = inject(FileUploadService);
   collectionService: CollectionService = inject(CollectionService);
-  
+
   step: number = 0;
   filename: any;
 
@@ -22,6 +21,10 @@ export class HomeComponent {
 
   onStepChange(step: any) {
     this.step = step;
+  }
+
+  onInfoPress(step: any) {
+    this.step = 3;
   }
 
   constructor() {}

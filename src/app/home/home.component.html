@@ -1,3 +1,20 @@
-<app-upload *ngIf="step === 0" (imageUploaded)="onImageUploaded($event)"></app-upload>
-<app-collection *ngIf="step === 1" [filename]="filename" (step)="onStepChange($event)"></app-collection>
+<link rel="stylesheet" href=".\home.component.css" />
+<div class="header">
+  <img src="..\assets\Color_Coded.png" alt="Color Coded logo" />
+
+  <button class="control" id="info-button">About this</button>
+</div>
+<app-upload
+  *ngIf="step === 0"
+  (imageUploaded)="onImageUploaded($event)"
+></app-upload>
+
+<app-collection
+  *ngIf="step === 1"
+  [filename]="filename"
+  (step)="onStepChange($event)"
+></app-collection>
+
 <app-results *ngIf="step === 2" (step)="onStepChange($event)"></app-results>
+
+<app-info *ngIf="step === 3" (step)="onInfoPress($event)"></app-info>

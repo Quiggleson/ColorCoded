@@ -2,7 +2,6 @@ Flask
 flask_cors
 numpy
 opencv-python
-colormath.color_objects
-colormath.color_diff
+colormath
 PIL
 math
