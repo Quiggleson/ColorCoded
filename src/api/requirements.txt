@@ -4,4 +4,4 @@ numpy
 opencv-python
 colormath
 Pillow
-math
+# math
