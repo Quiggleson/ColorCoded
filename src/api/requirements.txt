@@ -3,5 +3,5 @@ flask_cors
 numpy
 opencv-python
 colormath
-PIL
+Pillow
 math
