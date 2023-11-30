@@ -10,13 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './upload/upload.component';
 import { CollectionComponent } from './collection/collection.component';
 import { ResultsComponent } from './results/results.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    HomeComponent, 
-    UploadComponent, 
-    CollectionComponent, ResultsComponent
+    AppComponent,
+    HomeComponent,
+    UploadComponent,
+    CollectionComponent,
+    ResultsComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

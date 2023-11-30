@@ -3,15 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-info',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <p>
-      info works!
-    </p>
-  `,
-  styleUrls: ['./info.component.css']
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.css'],
 })
-export class InfoComponent {
-
-}
+export class InfoComponent {}
