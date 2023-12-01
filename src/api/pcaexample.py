@@ -2,13 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.decomposition import PCA
+import cv2
 
 # Generate random 3D points in the color space
-np.random.seed(42)
-points_3d = np.random.randint(0, 256, size=(100, 3))
+# np.random.seed(42)
+# points_3d = np.random.randint(0, 256, size=(100, 3))
+image_path = './test/image.png'  # Replace with the path to your image file
+image = cv2.imread(image_path)
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # OpenCV loads images in BGR format, convert to RGB
+points_3d = image.reshape((-1, 3))
 
 # Apply PCA for dimensionality reduction
-pca = PCA(n_components=2)
+pca = PCA(n_components=2, iterated_power=400)
 points_2d = pca.fit_transform(points_3d)
 
 # Plot the 3D points and the 2D projection
