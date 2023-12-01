@@ -8,8 +8,11 @@ from mpl_toolkits.mplot3d import Axes3D
 from sklearn.decomposition import PCA
 import cv2
 
+# Hardcode a list unchanged colors
+# unchanged = [[0,255,231]]
+
 # Load an image file using OpenCV
-image_path = './test/demo.jpg'  # Replace with the path to your image file
+image_path = './test/image.png'  # Replace with the path to your image file
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # OpenCV loads images in BGR format, convert to RGB
 
@@ -25,7 +28,11 @@ scaled_green = np.interp(points_2d[:, 0], (points_2d[:, 0].min(), points_2d[:, 0
 scaled_blue = np.interp(points_2d[:, 1], (points_2d[:, 1].min(), points_2d[:, 1].max()), (0, 255))
 
 # Create a 2D array for color representation
-colors = np.column_stack((image[:, :, 0].flatten(), scaled_green.reshape(image.shape[:2]).flatten(), scaled_blue.reshape(image.shape[:2]).flatten()))
+# Replace Red
+# colors = np.column_stack((image[:, :, 0].flatten(), scaled_green.reshape(image.shape[:2]).flatten(), scaled_blue.reshape(image.shape[:2]).flatten()))
+# Zero red
+image[:,:,0].fill(0)
+colors = np.column_stack((image[:,:,0].flatten(), scaled_green.reshape(image.shape[:2]).flatten(), scaled_blue.reshape(image.shape[:2]).flatten()))
 
 # Display the image using the green and blue values
 plt.figure(figsize=(8, 8))
