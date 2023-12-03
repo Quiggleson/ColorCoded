@@ -7,7 +7,7 @@ import cv2
 # Generate random 3D points in the color space
 # np.random.seed(42)
 # points_3d = np.random.randint(0, 256, size=(100, 3))
-image_path = './test/image.png'  # Replace with the path to your image file
+image_path = './test/three.png'  # Replace with the path to your image file
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # OpenCV loads images in BGR format, convert to RGB
 points_3d = image.reshape((-1, 3))
