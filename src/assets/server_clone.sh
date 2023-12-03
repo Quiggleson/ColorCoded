@@ -22,6 +22,9 @@ DIR="/home/$USER"
 # Set the target directory to the current directory + color-coded
 TARGET_DIR="$DIR/color-coded"
 
+# Print target dir to terminal
+echo "Target directory: $TARGET_DIR"
+
 # Check if the target directory exists
 if [ ! -d "$TARGET_DIR" ]; then
     # If it doesn't exist, clone the repo to the target directory
@@ -49,9 +52,6 @@ fi
 # Run npm i in $TARGET_DIR
 npm i --prefix "$TARGET_DIR"
 
-# Serve the files with angular in the background in $TARGET_DIR by changing into the directory and running ng serve
-ng serve --prefix "$TARGET_DIR" &
-
 # Create the venv for python in $TARGET_DIR if it doesn't exist
 if [ ! -d "$TARGET_DIR/.venv" ]; then
     python3 -m venv "$TARGET_DIR/.venv"
@@ -65,6 +65,12 @@ pip3 install -r "$TARGET_DIR/src/api/requirements.txt"
 
 # Run the python server
 python3 "$TARGET_DIR/src/api/app.py" &
+
+# Change directory into $TARGET_DIR and run ng serve
+cd "$TARGET_DIR" && ng serve
+
+# Running
+echo "Still running!"
 
 # Handle Control+C to stop the servers
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
