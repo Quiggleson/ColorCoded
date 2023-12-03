@@ -1,5 +1,8 @@
 from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
+from PIL import Image
+from colorthief import ColorThief
+from werkzeug.utils import secure_filename
 import os
 import random
 import string
@@ -57,18 +60,28 @@ def colors(filename):
     if not os.path.exists(f'{app.config["UPLOAD_FOLDER"]}/{filename}'):
         return 'File not found', 404
     
-    colors = []
+    # colors = []
     
-    img = cv2.imread(f'{app.config["UPLOAD_FOLDER"]}/{filename}')
-    RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    # img = cv2.imread(f'{app.config["UPLOAD_FOLDER"]}/{filename}')
+    # RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    try:
+        color_thief = ColorThief(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        print(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        print(cv2.imread(os.path.join(app.config["UPLOAD_FOLDER"], filename)).shape)
+        colors = color_thief.get_palette(color_count=15)
+    except:
+        #make it so the image colors are all white
+        colors = [(255,255,255)]*15
+    print(colors)
+    top_colors = [f'#{c[0]:02x}{c[1]:02x}{c[2]:02x}' for c in colors]
+    # for row in RGB_img:
+    #     for pixel in row:
+    #         hex_color = '#{:02x}{:02x}{:02x}'.format(*pixel)
+    #         colors.append(hex_color)
 
-    for row in RGB_img:
-        for pixel in row:
-            hex_color = '#{:02x}{:02x}{:02x}'.format(*pixel)
-            colors.append(hex_color)
+    # return random.choices(colors,k=16)
+    return top_colors
 
-    return random.choices(colors,k=16)
-
-
+    
 if __name__ == '__main__':
     app.run()
