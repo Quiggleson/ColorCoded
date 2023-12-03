@@ -24,6 +24,7 @@ export class HomeComponent {
   }
 
   onInfoPress(step: any) {
+    console.log('Step is 3');
     this.step = 3;
   }
 
