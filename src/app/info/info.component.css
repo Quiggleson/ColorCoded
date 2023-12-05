@@ -1,0 +1,15 @@
+.infoArea {
+}
+.infoArea p {
+  font-size: larger;
+}
+
+.infoDump {
+  align-items: ;
+  justify-content: space-between;
+  margin: 35px;
+}
+
+.infoDump p {
+  font-size: larger;
+}
