@@ -47,7 +47,12 @@ export class CollectionComponent implements OnInit{
     rgb.push(parseInt(color.substring(4,6), 16))    
     rgb.push(parseInt(color.substring(6,8), 16))
     const textarea = document.querySelector('#colors_text') as HTMLTextAreaElement;
-    textarea.value += `\n[${rgb}]`;
+    if(textarea.value.length === 0){
+      textarea.value += `[${rgb}]`;  
+    } else {
+      console.log(`text area length: ${textarea.value.length}`)
+      textarea.value += `\n[${rgb}]`;
+    }
   }
   
   constructor() {
