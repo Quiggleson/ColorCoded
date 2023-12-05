@@ -1,0 +1,10 @@
+.logo {
+    padding-right: 1%;
+}
+.info{
+    color: gray;
+    text-decoration: none;   
+}
+.info:hover{
+    text-decoration: underline;
+}
