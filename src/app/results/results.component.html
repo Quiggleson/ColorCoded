@@ -10,6 +10,7 @@
     </div>
 
     <div class="right-section">
+        <p *ngIf="red_file === undefined">Loading Results...</p>
         <img *ngIf="red_file" [src]="'http://localhost:5000/api/file/'+red_file" alt="Uploaded Image">
 
     </div>

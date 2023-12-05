@@ -19,8 +19,10 @@
             (click)="appendColorToTextarea(color)"
           ></div>
         </div>
-        <textarea #colors_text id="colors_text"></textarea>
-        <button type="submit" (click)="addUnchangedColors(colors_text.value)">Submit colors</button>
+        <textarea #colors_text id="colors_text" rows="15"></textarea>
+        <div>
+          <button type="submit" (click)="addUnchangedColors(colors_text.value)">Submit colors</button>
+        </div>
       </div>
       
 </div>

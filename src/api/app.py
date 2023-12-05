@@ -89,8 +89,10 @@ def colors(filename):
 def red(filename):
     if not os.path.exists(f'{app.config["UPLOAD_FOLDER"]}/{filename}'):
         return 'File not found', 404
-    print(f'request: {request.get_json()}')
-    nored_filename = nored(request.get_json()["colors"], app.config['UPLOAD_FOLDER'], filename)
+    unchanged_colors = []
+    if "colors" in request.get_json():
+        unchanged_colors = request.get_json()["colors"]
+    nored_filename = nored(unchanged_colors, app.config['UPLOAD_FOLDER'], filename)
     return {"nored_filename": nored_filename}
 
 if __name__ == '__main__':
