@@ -1,15 +1,19 @@
-.infoArea {
-}
 .infoArea p {
   font-size: larger;
 }
 
 .infoDump {
-  align-items: ;
+  align-items: flex-start;
   justify-content: space-between;
   margin: 35px;
 }
 
 .infoDump p {
   font-size: larger;
+}
+
+.infoDump img {
+  border: solid;
+  border-radius: 5px;
+  margin: 10px;
 }
