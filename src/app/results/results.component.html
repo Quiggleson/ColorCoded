@@ -1,5 +1,16 @@
-<p>Results Component</p>
-<div class="controlBox">
-    <button class="control data-dz-remove" id="back-button">Back</button>
-    <button class="control" id="next-button">Next</button>
+<h2>Results!</h2>
+<div class="container">
+    <div class="left-section">
+        <img *ngIf="filename" [src]="'http://localhost:5000/api/file/'+filename" alt="Uploaded Image">
+
+        <div class="controlBox">
+            <button class="control data-dz-remove" id="back-button">Back</button>
+            <button class="control" id="next-button">Restart</button>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <img *ngIf="red_file" [src]="'http://localhost:5000/api/file/'+red_file" alt="Uploaded Image">
+
+    </div>
 </div>

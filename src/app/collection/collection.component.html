@@ -1,4 +1,4 @@
-<h2>Collection Component</h2>
+<h2>Data Processing Step</h2>
 <div class="container">
     <div class="left-section">
         <img *ngIf="filename" [src]="'http://localhost:5000/api/file/'+filename" alt="Uploaded Image">
@@ -12,7 +12,15 @@
     <div class="right-section">
         <div *ngIf="colors === undefined">Loading Colors...</div>
         <div class="color-squares">
-            <div *ngFor="let color of colors; let i = index" class="square" [style.background-color]="color"></div>
+          <div
+            *ngFor="let color of colors; let i = index"
+            class="square"
+            [style.background-color]="color"
+            (click)="appendColorToTextarea(color)"
+          ></div>
         </div>
-    </div>
+        <textarea #colors_text id="colors_text"></textarea>
+        <button type="submit" (click)="addUnchangedColors(colors_text.value)">Submit colors</button>
+      </div>
+      
 </div>

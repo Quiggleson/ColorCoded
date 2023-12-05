@@ -13,6 +13,7 @@ export class HomeComponent {
 
   step: number = 0;
   filename: any;
+  unchanged_colors: any;
 
   onImageUploaded(filename: any) {
     this.step = 1;
@@ -26,6 +27,12 @@ export class HomeComponent {
   onInfoPress(step: any) {
     console.log('Step is 3');
     this.step = 3;
+  }
+
+  onUnchangedColors(unchanged_colors: any) {
+    console.log('unchanged colors from home: ')
+    console.log(unchanged_colors)
+    this.unchanged_colors = unchanged_colors;
   }
 
   constructor() {}

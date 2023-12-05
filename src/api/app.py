@@ -3,6 +3,7 @@ from flask_cors import CORS
 from PIL import Image
 from colorthief import ColorThief
 from werkzeug.utils import secure_filename
+from cbprocessing import nored
 import os
 import random
 import string
@@ -82,6 +83,15 @@ def colors(filename):
     # return random.choices(colors,k=16)
     return top_colors
 
-    
+# Accepts POST request with a list of colors to remain unchanged
+# like {"colors": [[255,255,255], [100,100,100]] }
+@app.route('/api/red/<path:filename>', methods=['POST'])
+def red(filename):
+    if not os.path.exists(f'{app.config["UPLOAD_FOLDER"]}/{filename}'):
+        return 'File not found', 404
+    print(f'request: {request.get_json()}')
+    nored_filename = nored(request.get_json()["colors"], app.config['UPLOAD_FOLDER'], filename)
+    return {"nored_filename": nored_filename}
+
 if __name__ == '__main__':
     app.run()

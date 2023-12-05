@@ -7,8 +7,14 @@
   *ngIf="step === 1"
   [filename]="filename"
   (step)="onStepChange($event)"
+  (unchanged_colors)="onUnchangedColors($event)"
 ></app-collection>
 
-<app-results *ngIf="step === 2" (step)="onStepChange($event)"></app-results>
+<app-results 
+  *ngIf="step === 2" 
+  [filename]="filename"
+  [unchanged_colors]="unchanged_colors"
+  (step)="onStepChange($event)"
+></app-results>
 
 <app-info *ngIf="step === 3" (step)="onInfoPress($event)"></app-info>

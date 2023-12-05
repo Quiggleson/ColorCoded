@@ -10,11 +10,45 @@ import { CollectionService } from '../collection.service';
 export class CollectionComponent implements OnInit{
   @Input() filename: any;
   @Output() step: EventEmitter<any> = new EventEmitter<any>();
+  @Output() unchanged_colors: EventEmitter<any> = new EventEmitter<any>();
 
 
   collectionService = inject(CollectionService);
   file: File | undefined;
   colors: string[] | undefined;
+  
+  addUnchangedColors(unchanged_colors_text: string): void {
+    console.log('adding unchanged colors')
+    console.log(unchanged_colors_text)
+    unchanged_colors_text = unchanged_colors_text
+      .replaceAll('[', '')
+      .replaceAll(']', '')
+      .replaceAll('(', '')
+      .replaceAll(')', '')
+      .replaceAll(' ', '')
+    const split_newline = unchanged_colors_text.split("\n");
+    var unchanged_colors: number[][] = [];
+    split_newline.forEach((line) => {
+      var rgb_text = line.split(',')
+      console.log(`rgb text: ${rgb_text}`)
+      const rgb: number[] = [];
+      rgb_text.forEach((num) => {
+        rgb.push(parseInt(num))
+      })
+      unchanged_colors.push(rgb)
+    });
+    console.log(unchanged_colors)
+    this.unchanged_colors.emit(unchanged_colors)
+  }
+
+  appendColorToTextarea(color: string){
+    var rgb: number[] = []
+    rgb.push(parseInt(color.substring(2,4), 16))
+    rgb.push(parseInt(color.substring(4,6), 16))    
+    rgb.push(parseInt(color.substring(6,8), 16))
+    const textarea = document.querySelector('#colors_text') as HTMLTextAreaElement;
+    textarea.value += `\n[${rgb}]`;
+  }
   
   constructor() {
   }
